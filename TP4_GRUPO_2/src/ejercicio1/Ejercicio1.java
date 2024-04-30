@@ -12,9 +12,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.GridLayout;
 import java.awt.GridBagLayout;
-import com.jgoodies.forms.layout.FormLayout;
+/*import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.layout.RowSpec;*/
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.GroupLayout.Alignment;
@@ -40,7 +40,7 @@ public class Ejercicio1 extends JFrame {
 	
 
 	public Ejercicio1() {
-		setTitle("Ejercicio 1");
+		setTitle("Contactos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 572, 300);
 		contentPane = new JPanel();
@@ -50,19 +50,19 @@ public class Ejercicio1 extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(57, 58, 46, 14);
+		lblNombre.setBounds(57, 58, 73, 14);
 		contentPane.add(lblNombre);
 		
 		JLabel lblApellido = new JLabel("Apellido:");
-		lblApellido.setBounds(57, 83, 52, 14);
+		lblApellido.setBounds(57, 83, 73, 14);
 		contentPane.add(lblApellido);
 		
 		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setBounds(57, 108, 46, 26);
+		lblTelefono.setBounds(57, 108, 73, 26);
 		contentPane.add(lblTelefono);
 		
 		JLabel lblFecha = new JLabel("Fecha Nacimiento:");
-		lblFecha.setBounds(57, 145, 99, 14);
+		lblFecha.setBounds(57, 145, 107, 14);
 		contentPane.add(lblFecha);
 		
 		textNombre = new JTextField();
@@ -71,7 +71,7 @@ public class Ejercicio1 extends JFrame {
 		textNombre.setColumns(10);
 		
 		textApellido = new JTextField();
-		textApellido.setBounds(174, 80, 86, 20);
+		textApellido.setBounds(174, 81, 86, 19);
 		contentPane.add(textApellido);
 		textApellido.setColumns(10);
 		
