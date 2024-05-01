@@ -42,7 +42,7 @@ public class Ejercicio1 extends JFrame {
 	public Ejercicio1() {
 		setTitle("Contactos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 572, 300);
+		setBounds(600, 300, 572, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

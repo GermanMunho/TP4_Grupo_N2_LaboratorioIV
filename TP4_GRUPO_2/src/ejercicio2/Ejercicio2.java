@@ -40,7 +40,7 @@ public class Ejercicio2 extends JFrame {
 	public Ejercicio2() {
 		setTitle("Promedio");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 460, 430);
+		setBounds(600, 300, 460, 430);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
