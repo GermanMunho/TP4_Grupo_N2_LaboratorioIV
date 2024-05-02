@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.Label;
 import java.awt.Font;
@@ -17,6 +18,7 @@ import principal.Principal;
 
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -29,90 +31,109 @@ public class Ejercicio2 extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-    private JTextField textFieldNota1;
-    private JTextField textFieldNota2;
-    private JTextField textFieldNota3;
-    private JTextField textFieldPromedio;
-    private JTextField textFieldCondicion;
+    private JTextField textNota1;
+    private JTextField textNota2;
+    private JTextField textNota3;
+    private JTextField textPromedio;
+    private JTextField textCondicion;
     private JComboBox<String> comboBoxTPS;
+    private JPanel recuadroNota;
+	private JPanel RecuadroResultado; 
 
 	
 	public Ejercicio2() {
 		setTitle("Promedio");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(600, 300, 460, 430);
+		
+		Border bordeNota = BorderFactory.createTitledBorder("Notas del estudiante");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		Label lblNotas = new Label("Notas del estudiante");
-		lblNotas.setFont(new Font("Dialog", Font.BOLD, 12));
-		lblNotas.setBounds(36, 38, 208, 22);
-		contentPane.add(lblNotas);
+		recuadroNota = new JPanel();
+		recuadroNota.setBounds(40, 47, 230, 202);
+		recuadroNota.setLayout(null);
+		recuadroNota.setBorder(bordeNota);
+		getContentPane().add(recuadroNota);
 		
 		Label lblNotas2 = new Label("Notas del estudiante");
 		lblNotas2.setFont(new Font("Dialog", Font.BOLD, 12));
 		lblNotas2.setBounds(36, 220, 208, 22);
-		contentPane.add(lblNotas2);
+		recuadroNota.add(lblNotas2);
 		
 		Label lblNota1 = new Label("Nota 1");
 		lblNota1.setFont(new Font("Dialog", Font.PLAIN, 12));
-		lblNota1.setBounds(36, 81, 54, 22);
-		contentPane.add(lblNota1);
+		lblNota1.setBounds(10, 29, 54, 22);
+		recuadroNota.add(lblNota1);
 		
 		Label lblNota2 = new Label("Nota 2");
 		lblNota2.setFont(new Font("Dialog", Font.PLAIN, 12));
-		lblNota2.setBounds(36, 109, 54, 22);
-		contentPane.add(lblNota2);
+		lblNota2.setBounds(10, 72, 54, 22);
+		recuadroNota.add(lblNota2);
 		
 		Label lblNota3 = new Label("Nota 3");
 		lblNota3.setFont(new Font("Dialog", Font.PLAIN, 12));
-		lblNota3.setBounds(36, 141, 54, 22);
-		contentPane.add(lblNota3);
+		lblNota3.setBounds(10, 112, 54, 22);
+		recuadroNota.add(lblNota3);
 		
 		Label lblTPS = new Label("TPS");
 		lblTPS.setFont(new Font("Dialog", Font.PLAIN, 12));
-		lblTPS.setBounds(36, 169, 37, 22);
-		contentPane.add(lblTPS);
+		lblTPS.setBounds(10, 151, 37, 22);
+		recuadroNota.add(lblTPS);
 		
-		textFieldNota1 = new JTextField();
-		textFieldNota1.setBounds(96, 83, 101, 20);
-		contentPane.add(textFieldNota1);
-		textFieldNota1.setColumns(10);
+		textNota1 = new JTextField();
+		textNota1.setBounds(96, 29, 101, 20);
+		recuadroNota.add(textNota1);
+		textNota1.setColumns(10);
 		
 		
-		textFieldNota2 = new JTextField();
-		textFieldNota2.setColumns(10);
-		textFieldNota2.setBounds(96, 111, 101, 20);
-		contentPane.add(textFieldNota2);
+		textNota2 = new JTextField();
+		textNota2.setColumns(10);
+		textNota2.setBounds(96, 72, 101, 20);
+		recuadroNota.add(textNota2);
 		
-		textFieldNota3 = new JTextField();
-		textFieldNota3.setColumns(10);
-		textFieldNota3.setBounds(96, 141, 101, 20);
-		contentPane.add(textFieldNota3);
+		textNota3 = new JTextField();
+		textNota3.setColumns(10);
+		textNota3.setBounds(96, 112, 101, 20);
+		recuadroNota.add(textNota3);
+		
+		  comboBoxTPS = new JComboBox<>();
+		  comboBoxTPS.setBounds(96, 150, 101, 25);
+		  recuadroNota.add(comboBoxTPS);
+		  comboBoxTPS.setModel(new DefaultComboBoxModel<>(new String[] {"Aprobado", "Desaprobado"}));
+		
+		
+		
+		Border bordeNota2 = BorderFactory.createTitledBorder("Resultado");
+		RecuadroResultado = new JPanel();
+		RecuadroResultado.setBounds(40, 260, 230, 103);
+		getContentPane().add(RecuadroResultado);
+		RecuadroResultado.setLayout(null);
+		RecuadroResultado.setBorder(bordeNota2);
 		
 		Label lblPromedio = new Label("Promedio:");
 		lblPromedio.setFont(new Font("Dialog", Font.PLAIN, 12));
-		lblPromedio.setBounds(36, 261, 61, 22);
-		contentPane.add(lblPromedio);
+		lblPromedio.setBounds(10, 26, 61, 22);
+		RecuadroResultado.add(lblPromedio);
 		
 		Label lblCondicion = new Label("Condicion:");
 		lblCondicion.setFont(new Font("Dialog", Font.PLAIN, 12));
-		lblCondicion.setBounds(36, 292, 61, 22);
-		contentPane.add(lblCondicion);
+		lblCondicion.setBounds(10, 64, 61, 22);
+		RecuadroResultado.add(lblCondicion);
 		
-		textFieldPromedio = new JTextField();
-		textFieldPromedio.setEditable(false);
-		textFieldPromedio.setColumns(10);
-		textFieldPromedio.setBounds(105, 261, 92, 20);
-		contentPane.add(textFieldPromedio);
+		textPromedio = new JTextField();
+		textPromedio.setEditable(false);
+		textPromedio.setColumns(10);
+		textPromedio.setBounds(105, 28, 92, 20);
+		RecuadroResultado.add(textPromedio);
 		
-		textFieldCondicion = new JTextField();
-		textFieldCondicion.setEditable(false);
-		textFieldCondicion.setColumns(10);
-		textFieldCondicion.setBounds(105, 294, 92, 20);
-		contentPane.add(textFieldCondicion);
+		textCondicion = new JTextField();
+		textCondicion.setEditable(false);
+		textCondicion.setColumns(10);
+		textCondicion.setBounds(105, 64, 92, 20);
+		RecuadroResultado.add(textCondicion);
 		
 		JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
@@ -120,7 +141,7 @@ public class Ejercicio2 extends JFrame {
 				calcularPromedio();
 			}
 		});
-		btnCalcular.setBounds(296, 81, 89, 23);
+		btnCalcular.setBounds(308, 150, 89, 23);
 		contentPane.add(btnCalcular);
 		
 		JButton btnNuevo = new JButton("Nuevo");
@@ -129,7 +150,7 @@ public class Ejercicio2 extends JFrame {
 				limpiarCampos();
 			}
 		});
-		btnNuevo.setBounds(296, 109, 89, 23);
+		btnNuevo.setBounds(308, 178, 89, 23);
 		contentPane.add(btnNuevo);
 		
 		JButton btnSalir = new JButton("Salir");
@@ -140,37 +161,32 @@ public class Ejercicio2 extends JFrame {
 				  principal.setVisible(true);
 			}
 		});
-		btnSalir.setBounds(296, 140, 89, 23);
+		btnSalir.setBounds(308, 209, 89, 23);
 		contentPane.add(btnSalir);
-		
-		  comboBoxTPS = new JComboBox<>();
-	        comboBoxTPS.setModel(new DefaultComboBoxModel<>(new String[] {"Aprobado", "Desaprobado"}));
-	        comboBoxTPS.setBounds(96, 166, 150, 25);
-	        contentPane.add(comboBoxTPS);
 	}
 	
 	private void calcularPromedio() {
 		  try {
-			  double nota1 = Double.parseDouble(textFieldNota1.getText());
-	            double nota2 = Double.parseDouble(textFieldNota2.getText());
-	            double nota3 = Double.parseDouble(textFieldNota3.getText());
+			  double nota1 = Double.parseDouble(textNota1.getText());
+	            double nota2 = Double.parseDouble(textNota2.getText());
+	            double nota3 = Double.parseDouble(textNota3.getText());
 	            if (nota1 < 1 || nota1 > 10 || nota2 < 1 || nota2 > 10 || nota3 < 1 || nota3 > 10) {
 	                JOptionPane.showMessageDialog(null, "Las notas deben estar entre 1 y 10.");
 	                return;
 	            }
 
 	            double promedio = (nota1 + nota2 + nota3) / 3;
-	            textFieldPromedio.setText(String.format("%.2f", promedio));
+	            textPromedio.setText(String.format("%.2f", promedio));
 
 	            String tpStatus = (String) comboBoxTPS.getSelectedItem();
 	            if (tpStatus.equals("Desaprobado") || nota1 < 6 || nota2 < 6 || nota3 < 6) {
-	                textFieldCondicion.setText("Libre");
+	                textCondicion.setText("Libre");
 	            } else if (nota1 >= 8 && nota2 >= 8 && nota3 >= 8 && tpStatus.equals("Aprobado")) {
-	                textFieldCondicion.setText("Promocionado");
+	                textCondicion.setText("Promocionado");
 	            } else if (promedio >= 6 && promedio < 8 && tpStatus.equals("Aprobado")) {
-	                textFieldCondicion.setText("Regular");
+	                textCondicion.setText("Regular");
 	            } else {
-	                textFieldCondicion.setText("Libre");
+	                textCondicion.setText("Libre");
 	            }
 	        } catch (NumberFormatException ex) {
 	            JOptionPane.showMessageDialog(null, "Ingrese notas válidas.");
@@ -178,10 +194,10 @@ public class Ejercicio2 extends JFrame {
 		
 	}
 	private void limpiarCampos() {
-		textFieldNota1.setText("");
-		textFieldNota2.setText("");
-		textFieldNota3.setText("");
-		textFieldPromedio.setText("");
-		textFieldCondicion.setText("");
+		textNota1.setText("");
+		textNota2.setText("");
+		textNota3.setText("");
+		textPromedio.setText("");
+		textCondicion.setText("");
 	}
 }

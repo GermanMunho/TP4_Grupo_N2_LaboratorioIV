@@ -107,7 +107,7 @@ public class Ejercicio1 extends JFrame {
 	                textFecha.setBackground(fechaNacimiento.trim().isEmpty()? Color.RED: UIManager.getColor("TextField.background"));
 	            
 	                if((nombre.trim().isEmpty() || apellido.trim().isEmpty() || telefono.trim().isEmpty() || fechaNacimiento.trim().isEmpty())) {
-	                    datos = "Los datos ingresados fueron: ";
+	                    datos = "No se ingresaron datos ";
 	                }
 	                else {
 	                    datos = "Los datos ingresados fueron: " + nombre + " " + apellido + ", " + telefono + ", " + fechaNacimiento;

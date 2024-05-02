@@ -1,10 +1,12 @@
 package ejercicio3;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-
+import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JRadioButton;
@@ -19,13 +21,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
 
 public class Ejercicio3 extends JFrame {
 
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private ButtonGroup bg = new ButtonGroup();
+	private JPanel panel1;
+	private JPanel panel2;
+	private ButtonGroup bg;
 	private JTextField txtHoras;
 	private JButton btnAceptar;
 	private JRadioButton btnWindows;
@@ -37,8 +43,6 @@ public class Ejercicio3 extends JFrame {
 	private JLabel lblEspecialidad;
 	private JLabel lblSistema;
 	private JLabel lblHoras;
-	private JFrame infoFrame;
-	private JLabel infoLabel;
 	
 	public Ejercicio3() {
 		initlayaout();
@@ -57,58 +61,80 @@ public class Ejercicio3 extends JFrame {
 	}
 	
 	private void initComponents() {
+		panel1 = new JPanel();
+		Border bordeLinea = new LineBorder(Color.BLACK,2,true);
+		
+		panel1.setBounds(10, 11, 409, 62);
+		panel1.setBorder(bordeLinea);
+		
 		lblSistema = new JLabel("Elija un sistema operativo");
-
-	    btnWindows = new JRadioButton("Windows",true);
-	    btnWindows.setBounds(160, 10, 87, 23);
+	    lblSistema.setBounds(10, 24, 142, 16);
+	    
+	    lblSistema.setFont(new Font("Dialog", Font.PLAIN, 12));
+	    
 	    btnLinux = new JRadioButton("Linux",false);
-	    btnLinux.setBounds(338, 10, 87, 23);
+	    btnLinux.setBounds(327, 22, 51, 23);
+	    
 	    btnMac = new JRadioButton("Mac",false); 
-	    btnMac.setBounds(249, 10, 87, 23);
+	    btnMac.setBounds(264, 22, 45, 23);
 	    contentPane.setLayout(null);
 
+	    bg = new ButtonGroup();
 	    bg.add(btnLinux);
-	    bg.add(btnWindows);
 	    bg.add(btnMac);
+	    panel1.setLayout(null);
 
-
-	    lblSistema.setBounds(12, 12, 142, 16);
-	    lblSistema.setFont(new Font("Dialog", Font.PLAIN, 12));
-	    contentPane.add(lblSistema);
-	    contentPane.add(btnMac);
-	    contentPane.add(btnWindows);
-	    contentPane.add(btnLinux);
-		
+	    panel1.add(lblSistema);
+	    btnWindows = new JRadioButton("Windows",true);
+	    btnWindows.setBounds(183, 22, 69, 23);
+	    bg.add(btnWindows);
+	    panel1.add(btnWindows);
+	    panel1.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblSistema, btnWindows, btnLinux, btnMac}));
+	    panel1.add(btnMac);
+	    panel1.add(btnLinux);
+	    contentPane.add(panel1);
+	    
+	    panel2 =new JPanel();
+	    panel2.setBounds(10, 81, 409, 103);
+		panel2.setBorder(bordeLinea);
+		panel2.setLayout(null);
+	    
 		lblEspecialidad = new JLabel("Elija una especialidad");
 		lblEspecialidad.setFont(new Font("Dialog", Font.PLAIN, 12));
-		lblEspecialidad.setBounds(12, 116, 178, 14);
-		contentPane.add(lblEspecialidad);
+		lblEspecialidad.setBounds(10, 40, 178, 14);
 		
 		chckbxProgramcion = new JCheckBox("Programaci\u00F3n");
-		chckbxProgramcion.setBounds(174, 83, 129, 23);
-		contentPane.add(chckbxProgramcion);
+		chckbxProgramcion.setBounds(215, 11, 129, 23);	
 		
 		chckbxAdministracion = new JCheckBox("Administraci\u00F3n");
-		chckbxAdministracion.setBounds(174, 113, 129, 23);
-		contentPane.add(chckbxAdministracion);
+		chckbxAdministracion.setBounds(215, 61, 129, 23);	
 		
 		chckbxDiseño = new JCheckBox("Dise\u00F1o Gr\u00E1fico");
-		chckbxDiseño.setBounds(174, 139, 129, 23);
-		contentPane.add(chckbxDiseño);
+		chckbxDiseño.setBounds(215, 37, 129, 23);
+		
 		
 		lblHoras = new JLabel("Cantidad de horas en el computador:",0);
 		lblHoras.setFont(new Font("Dialog", Font.PLAIN, 12));
-		lblHoras.setBounds(12, 237, 235, 22);
-		contentPane.add(lblHoras);
+		lblHoras.setBounds(10, 195, 235, 22);
+		
+		panel2.add(lblEspecialidad);
+		panel2.add(chckbxProgramcion);
+		panel2.add(chckbxDiseño);
+		panel2.add(chckbxAdministracion);
+		contentPane.add(panel2);
+
 		
 		txtHoras = new JTextField();
 		txtHoras.setText("0");
-		txtHoras.setBounds(250, 239, 86, 20);
-		contentPane.add(txtHoras);
+		txtHoras.setBounds(264, 195, 86, 20);
 		txtHoras.setColumns(10);
+		
 		btnAceptar = new JButton("Aceptar");
 		setVisible(true);
-		btnAceptar.setBounds(160, 275, 89, 23);
+		btnAceptar.setBounds(156, 245, 89, 23);
+		
+		contentPane.add(lblHoras);
+		contentPane.add(txtHoras);
 		contentPane.add(btnAceptar);
 	}
 	
